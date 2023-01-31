@@ -1,7 +1,6 @@
 .header{
     display: flex;
     background-color: rgba(0, 0, 0, 0.7);
-    justify-content: space-around;
     height: 3em;
     align-items: center;
     font-size: 1.2em;
@@ -9,6 +8,28 @@
     color: aliceblue;
 }
 
-.espacador{
-    margin-left: 20em;
+.header a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.active {
+    background-color: darkblue;
+    color:aliceblue;
+}
+
+.cont-1{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cont-2{
+    width: 40%;
+    display: flex;
+    justify-content: right;
+}
+
+.cont-2 a{
+    margin-right: 10%;
 }

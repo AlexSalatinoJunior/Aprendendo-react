@@ -39,12 +39,15 @@ export const useFetch = (url) => {
             try {
                 const res = await fetch(url)
                 if(res.status === 404){
-                    throw new Error()
+                    throw new Error("404")
                 }
                 const json = await res.json()
                 setData(json)
             } catch (error) {
-                setError("Houve um erro ao carregar os dados!")
+                setError({
+                    code: 404,
+                    message: "Houve um erro ao carregar os dados!"
+                })
                 console.log(error.message)
             }
             setLoading(false)
@@ -63,7 +66,10 @@ export const useFetch = (url) => {
                     const json = await res.json()
                     setCallFetch(json)
                 } catch (error) {
-                    setError("Houve um erro ao enviar os dados!")
+                    setError({
+                        code: 404,
+                        message: "Houve um erro ao enviar os dados!"
+                    })
                     console.log(error.message)
                 }
 
@@ -79,7 +85,10 @@ export const useFetch = (url) => {
                     const json = await res.json()
                     setCallFetch(json)
                 } catch (error) {
-                    setError("Houve um erro ao excluir os dados!")
+                    setError({
+                        code: error.code,
+                        message: "Houve um erro ao excluir os dados!"
+                    })
                     console.log(error.message)
                 }
             }
