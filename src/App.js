@@ -9,10 +9,12 @@ import Produto from './pages/Produto'
 import NotFound from './pages/NotFound'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Search from './pages/Search'
+import { useContext } from 'react'
+import { UrlApiContext } from './context/UrlApiContext'
 
 function App() {
 
-  const url = "http://localhost:3000/products"
+  const {url} = useContext(UrlApiContext)
 
   return (
     <div className="App">
@@ -24,8 +26,8 @@ function App() {
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/produtos/:id" element={<Produto url={url} />}></Route>
-          <Route path="/search" element={<Search url={url} />} />
+          <Route path="/produtos/:id" element={<Produto />}></Route>
+          <Route path="/search" element={<Search />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

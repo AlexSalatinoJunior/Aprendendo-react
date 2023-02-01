@@ -3,13 +3,16 @@ import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import './ListaProdutos.css'
 
-function ListaProdutos(props){
+const ListaProdutos = (props) => {
 
     const {data: items, loading, error} = useFetch(props.url)
-    // const [name, setName] = useState("")
-    // const [price, setPrice] = useState("")
 
+    // eslint-disable-next-line no-lone-blocks
     {/*
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+
+
     const handleSubmit = async (e) =>{
             e.preventDefault()
             const product = {

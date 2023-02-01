@@ -1,11 +1,13 @@
-import { useSearchParams, Link } from "react-router-dom"
-import { useFetch } from "../hooks/useFetch"
+import { useSearchParams } from "react-router-dom"
 import ListaProdutos from "./ListaProdutos"
+import { useContext } from "react"
+import {UrlApiContext} from '../context/UrlApiContext'
 
-const Search = (props) => {
+const Search = () => {
+    const {url: urlApi} = useContext(UrlApiContext)
     const [searchParams] = useSearchParams()
 
-    const url = props.url +"?"+ searchParams
+    const url = urlApi + "?" + searchParams
 
   return (
     <div>

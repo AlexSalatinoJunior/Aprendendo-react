@@ -1,9 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
+import { useContext } from "react"
+import { UrlApiContext } from "../context/UrlApiContext"
 
-const Produto = (props) => {
+const Produto = () => {
+  const {url} = useContext(UrlApiContext)
   const {id} = useParams()
-  const urlId = props.url +"/"+ id
+  const urlId = url +"/"+ id
 
   const {data: item, error} = useFetch(urlId)
   const navigate = useNavigate()
