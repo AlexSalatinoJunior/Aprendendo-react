@@ -2,8 +2,10 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
 import { useContext } from "react"
 import { UrlApiContext } from "../context/UrlApiContext"
+import { useTitleColorContext } from "../hooks/useTitleColorContext"
 
 const Produto = () => {
+  const {color} = useTitleColorContext()
   const {url} = useContext(UrlApiContext)
   const {id} = useParams()
   const urlId = url +"/"+ id
@@ -17,7 +19,7 @@ const Produto = () => {
       <p>Id do produto: {id}</p>
       {!error && item &&
       <div>
-        <h2>{item.name}</h2>
+        <h2 style={{color: color}}>{item.name}</h2>
         <p>R$: {item.price}</p>
       </div>
       }

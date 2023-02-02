@@ -2,8 +2,11 @@
 import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import './ListaProdutos.css'
+import {useTitleColorContext} from "../hooks/useTitleColorContext"
 
 const ListaProdutos = (props) => {
+
+    const {color} = useTitleColorContext()
 
     const {data: items, loading, error} = useFetch(props.url)
 
@@ -33,7 +36,7 @@ const ListaProdutos = (props) => {
             <ul className='products'>
                 {!error && !loading && items && items.map((product) => (
                     <li key={product.id}>
-                        <h2>{product.name}</h2>
+                        <h2 style={{color: color}}>{product.name}</h2>
                         <p>R$: {product.price}</p>
                         <Link to={`/produtos/${product.id}`}>Detalhes</Link>
                     </li>

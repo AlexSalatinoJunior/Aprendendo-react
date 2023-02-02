@@ -30,6 +30,6 @@
     justify-content: right;
 }
 
-.cont-2 a{
+.cont-2 a, .cont-2 select{
     margin-right: 10%;
 }

@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UrlApiContextProvider } from './context/UrlApiContext';
+import { TitleColorContextProvider } from './context/TitleColorContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UrlApiContextProvider>
-      <App />
+      <TitleColorContextProvider>
+        <App />
+      </TitleColorContextProvider>
     </UrlApiContextProvider>
   </React.StrictMode>
 );
